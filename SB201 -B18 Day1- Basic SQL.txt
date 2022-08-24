@@ -1,0 +1,364 @@
+mysql> create table DEPOSIT (
+    -> ACTNO  varchar(25),
+    -> CNAME   varchar(20),
+    -> BNAME  varchar(20),
+    -> AMOUNT  int,
+    -> ADATE   date
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> create table BRANCH  (
+    -> BNAME  varchar(20),
+    -> CITY   varchar(20)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table CUSTOMER   (
+    -> CNAME  varchar(20),
+    -> CITY   varchar(20)
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table BORROW   (
+    -> LOANNO   varchar(5),
+    -> CNAME  varchar(20),
+    -> BNAME    varchar(20),
+    -> AMOUNT  INT
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> show tables;
++---------------+
+| Tables_in_db1 |
++---------------+
+| borrow        |
+| branch        |
+| customer      |
+| deposit       |
+| employee      |
+| masaiemployee |
++---------------+
+6 rows in set (0.01 sec)
+
+mysql> desc deposit;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| ACTNO  | varchar(25) | YES  |     | NULL    |       |
+| CNAME  | varchar(20) | YES  |     | NULL    |       |
+| BNAME  | varchar(20) | YES  |     | NULL    |       |
+| AMOUNT | int         | YES  |     | NULL    |       |
+| ADATE  | date        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> desc borrow;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| LOANNO | varchar(5)  | YES  |     | NULL    |       |
+| CNAME  | varchar(20) | YES  |     | NULL    |       |
+| BNAME  | varchar(20) | YES  |     | NULL    |       |
+| AMOUNT | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> desc branch;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| BNAME | varchar(20) | YES  |     | NULL    |       |
+| CITY  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> desc customer;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| CNAME | varchar(20) | YES  |     | NULL    |       |
+| CITY  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> INSERT INTO DEPOSIT VALUES(100,'ANIL','VRCE',1000,'1995-3-01');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO DEPOSIT VALUES(101,'SUNIL','MGROAD',5000,'1996-1-04');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO DEPOSIT VALUES(102,'RAHUL','KAROLBAGH',3500,'1995-11-17');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPOSIT VALUES(103,'MADHURI','CHANDANI',1200,'1995-12-17');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO DEPOSIT VALUES(104,'PRAMOD','MGROAD',3000,'1996-3-27');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO DEPOSIT VALUES(105,'SANDEEP','KAROLBAGH',2000,'1996-3-31');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO BRANCH VALUES('VRCE','NAGPUR');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO BRANCH VALUES('KAROLBAGH','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO BRANCH VALUES('CHANDANI','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO BRANCH VALUES('MGROAD','BANGLORE');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('ANIL','CULCUTA');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('RAHUL','BARODA');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('MADHURI','NAGPUR');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('PRAMOD','NAGPUR');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES('SUNIL','DELHI');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO BORROW VALUES(201,'ANIL','VRCE',1000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO BORROW VALUES(206,'RAHUL','KAROLBAGH',5000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO BORROW VALUES(311,'SUNIL','MGROAD',3000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO BORROW VALUES(321,'MADHURI','CHANDANI',2000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO BORROW VALUES(375,'PRAMOD','MGROAD',8000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM BORROW WHERE AMOUNT >=2000 AND AMOUNT <=3000;
++--------+---------+----------+--------+
+| LOANNO | CNAME   | BNAME    | AMOUNT |
++--------+---------+----------+--------+
+| 311    | SUNIL   | MGROAD   |   3000 |
+| 321    | MADHURI | CHANDANI |   2000 |
++--------+---------+----------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPOSIT;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | ANIL    | VRCE      |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD    |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDANI  |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+| 105   | SANDEEP | KAROLBAGH |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT CNAME,ACTNO FROM DEPOSIT;
++---------+-------+
+| CNAME   | ACTNO |
++---------+-------+
+| ANIL    | 100   |
+| SUNIL   | 101   |
+| RAHUL   | 102   |
+| MADHURI | 103   |
+| PRAMOD  | 104   |
+| SANDEEP | 105   |
++---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT CNAME FROM CUSTOMER WHERE CITY='NAGPUR';
++---------+
+| CNAME   |
++---------+
+| MADHURI |
+| PRAMOD  |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT CNAME FROM DEPOSIT WHERE ADATE >='1995-11-17';
++---------+
+| CNAME   |
++---------+
+| SUNIL   |
+| RAHUL   |
+| MADHURI |
+| PRAMOD  |
+| SANDEEP |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT ACTNO,AMOUNT FROM DEPOSIT WHERE ADATE >='1995-12-01' AND ADATE <='1996-06-01';
++-------+--------+
+| ACTNO | AMOUNT |
++-------+--------+
+| 101   |   5000 |
+| 103   |   1200 |
+| 104   |   3000 |
+| 105   |   2000 |
++-------+--------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPOSIT WHERE CNAME LIKE 'C%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM BORROW WHERE CNAME LIKE '_U%';
++--------+-------+--------+--------+
+| LOANNO | CNAME | BNAME  | AMOUNT |
++--------+-------+--------+--------+
+| 311    | SUNIL | MGROAD |   3000 |
++--------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql>  SELECT * FROM DEPOSIT WHERE BNAME='CHANDANI' OR BNAME='MGROAD';
++-------+---------+----------+--------+------------+
+| ACTNO | CNAME   | BNAME    | AMOUNT | ADATE      |
++-------+---------+----------+--------+------------+
+| 101   | SUNIL   | MGROAD   |   5000 | 1996-01-04 |
+| 103   | MADHURI | CHANDANI |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD   |   3000 | 1996-03-27 |
++-------+---------+----------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPOSIT WHERE NOT (BNAME='CHANDANI' OR BNAME='MGROAD');
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 100   | ANIL    | VRCE      |   1000 | 1995-03-01 |
+| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+| 105   | SANDEEP | KAROLBAGH |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPOSIT WHERE AMOUNT >1000;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 101   | SUNIL   | MGROAD    |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDANI  |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+| 105   | SANDEEP | KAROLBAGH |   2000 | 1996-03-31 |
++-------+---------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+mysql> SELECT * FROM DEPOSIT WHERE AMOUNT >1000  ORDER BY CNAME ASC;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 103   | MADHURI | CHANDANI  |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+| 105   | SANDEEP | KAROLBAGH |   2000 | 1996-03-31 |
+| 101   | SUNIL   | MGROAD    |   5000 | 1996-01-04 |
++-------+---------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM DEPOSIT WHERE AMOUNT >1000  ORDER BY CNAME DESC;
++-------+---------+-----------+--------+------------+
+| ACTNO | CNAME   | BNAME     | AMOUNT | ADATE      |
++-------+---------+-----------+--------+------------+
+| 101   | SUNIL   | MGROAD    |   5000 | 1996-01-04 |
+| 105   | SANDEEP | KAROLBAGH |   2000 | 1996-03-31 |
+| 102   | RAHUL   | KAROLBAGH |   3500 | 1995-11-17 |
+| 104   | PRAMOD  | MGROAD    |   3000 | 1996-03-27 |
+| 103   | MADHURI | CHANDANI  |   1200 | 1995-12-17 |
++-------+---------+-----------+--------+------------+
+5 rows in set (0.00 sec)
+mysql> UPDATE DEPOSIT SET AMOUNT=AMOUNT*0.1 WHERE BNAME='VRCE';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE DEPOSIT SET AMOUNT=AMOUNT+AMOUNT*0.1 WHERE BNAME='VRCE' AND CNAME='ANIL';
+Query OK, 1 row affected (0.01 sec)
+==================================================================
+QUESTION 2
+
+mysql> CREATE TABLE STUDENT(
+    -> NAME VARCHAR(20),
+    -> ROLLNO INT,
+    -> BRANCH  VARCHAR(20),
+    -> CITY VARCHAR(20)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> INSERT INTO STUDENT VALUES("VIJAYA",150,"CSE","CHENNAI");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO STUDENT VALUES("SITA",202,"ETC","KOLKATA");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO STUDENT VALUES("RAVI",300,"EEE","DELHI");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO STUDENT VALUES("BASU",165,"ETC","CHENNAI");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO STUDENT VALUES("RASMI",107,"ETC","RKL");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO STUDENT VALUES("KARAN",111,"CSE","CTC");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO STUDENT VALUES("REKHA",117,"BME","BBSR");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM STUDENT;
++--------+--------+--------+---------+
+| NAME   | ROLLNO | BRANCH | CITY    |
++--------+--------+--------+---------+
+| VIJAYA |    150 | CSE    | CHENNAI |
+| SITA   |    202 | ETC    | KOLKATA |
+| RAVI   |    300 | EEE    | DELHI   |
+| BASU   |    165 | ETC    | CHENNAI |
+| RASMI  |    107 | ETC    | RKL     |
+| KARAN  |    111 | CSE    | CTC     |
+| REKHA  |    117 | BME    | BBSR    |
++--------+--------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT BRANCH,COUNT(*) FROM STUDENT GROUP BY BRANCH;
++--------+----------+
+| BRANCH | COUNT(*) |
++--------+----------+
+| CSE    |        2 |
+| ETC    |        3 |
+| EEE    |        1 |
+| BME    |        1 |
++--------+----------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT BRANCH,COUNT(*) FROM STUDENT GROUP BY BRANCH AND BRANCH LIKE 'E%';
++--------+----------+
+| BRANCH | COUNT(*) |
++--------+----------+
+| CSE    |        7 |
++--------+----------+
+1 row in set, 8 warnings (0.00 sec)
+mysql> ALTER TABLE STUDENT ADD MARKS LONG;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE STUDENT MODIFY NAME VARCHAR(25);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DELETE FROM STUDENT WHERE BRANCH="ETC";
+Query OK, 3 rows affected (0.01 sec)
+
+mysql> RENAME TABLE STUDENT TO STUDINFORMATION;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> TRUNCATE TABLE STUDENT;
+ERROR 1146 (42S02): Table 'db1.student' doesn't exist
+mysql> DROP TABLE STUDENT;
+ERROR 1051 (42S02): Unknown table 'db1.student'
+mysql>
