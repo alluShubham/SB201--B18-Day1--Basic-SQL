@@ -1,0 +1,137 @@
+1. Create the following table according to the following information
+create table DEPOSIT (
+ACTNO  varchar(25),
+CNAME   varchar(20),
+BNAME  varchar(20),
+AMOUNT  int,
+ADATE   date
+);
+
+create table BRANCH  (
+BNAME  varchar(20),
+CITY   varchar(20)
+);
+
+create table CUSTOMER   (
+CNAME  varchar(20),
+CITY   varchar(20)
+);
+create table BORROW   (
+LOANNO   varchar(5),
+CNAME  varchar(20),
+BNAME    varchar(20),
+AMOUNT  INT
+);
+
+INSERT INTO DEPOSIT VALUES(100,'ANIL','VRCE',1000,'1995-3-01');
+INSERT INTO DEPOSIT VALUES(101,'SUNIL','MGROAD',5000,'1996-1-04');
+INSERT INTO DEPOSIT VALUES(102,'RAHUL','KAROLBAGH',3500,'1995-11-17');
+INSERT INTO DEPOSIT VALUES(103,'MADHURI','CHANDANI',1200,'1995-12-17');
+INSERT INTO DEPOSIT VALUES(104,'PRAMOD','MGROAD',3000,'1996-3-27');
+INSERT INTO DEPOSIT VALUES(105,'SANDEEP','KAROLBAGH',2000,'1996-3-31');
+
+INSERT INTO BRANCH VALUES('VRCE','NAGPUR');
+INSERT INTO BRANCH VALUES('KAROLBAGH','DELHI');
+INSERT INTO BRANCH VALUES('CHANDANI','DELHI');
+INSERT INTO BRANCH VALUES('MGROAD','BANGLORE');
+
+INSERT INTO CUSTOMER VALUES('ANIL','CULCUTA');
+INSERT INTO CUSTOMER VALUES('RAHUL','BARODA');
+INSERT INTO CUSTOMER VALUES('MADHURI','NAGPUR');
+INSERT INTO CUSTOMER VALUES('PRAMOD','NAGPUR');
+INSERT INTO CUSTOMER VALUES('SUNIL','DELHI');
+
+INSERT INTO BORROW VALUES(201,'ANIL','VRCE',1000);
+INSERT INTO BORROW VALUES(206,'RAHUL','KAROLBAGH',5000);
+INSERT INTO BORROW VALUES(311,'SUNIL','MGROAD',3000);
+INSERT INTO BORROW VALUES(321,'MADHURI','CHANDANI',2000);
+INSERT INTO BORROW VALUES(375,'PRAMOD','MGROAD',8000);
+
+4.Retrieve all the records from the table BORROW  where amount in between 2000 and 3000
+SELECT * FROM BORROW WHERE AMOUNT >=2000 AND AMOUNT <=3000;
+
+5. Retrieve the details from the table DEPOSIT
+SELECT * FROM DEPOSIT;
+
+6. Retrieve the customer name, account no of DEPOSIT
+SELECT CNAME,ACTNO FROM DEPOSIT ;
+
+7. Retrieve the name of the customer living in NAGPUR
+SELECT CNAME FROM CUSTOMER WHERE CITY='NAGPUR';
+
+8. Retrieve the name of the customers who opened account after 17-NOV-95
+SELECT CNAME FROM DEPOSIT WHERE ADATE >='1995-11-17';
+
+9. Retrieve the account number and amount of the customer having account opened between 01-12-95 and 01-06.96.
+SELECT ACTNO,AMOUNT FROM DEPOSIT WHERE ADATE >='1995-12-01' AND ADATE <='1996-06-01';
+
+10. Retrieve all the records from the table DEPOSIT where CNAME begins with C.
+SELECT * FROM DEPOSIT WHERE CNAME LIKE 'C%';
+
+11. Retrieve all the records from the table BORROW  where 2nd character of CNAME is U
+SELECT * FROM BORROW WHERE CNAME LIKE '_U%';
+
+12. Retrieve all the records from the table DEPOSIT where branch name is CHANDNI or MGROAD.
+SELECT * FROM DEPOSIT WHERE BNAME='CHANDANI' OR BNAME='MGROAD';
+
+13. Retrieve all the records from the table DEPOSIT where branch name is not CHANDNI or MGROAD
+SELECT * FROM DEPOSIT WHERE NOT (BNAME='CHANDANI' OR BNAME='MGROAD');
+
+14. Retrieve all the records from DEPOSIT where amount > 1000 and arrange the customer name in ascending order.
+SELECT * FROM DEPOSIT WHERE AMOUNT >1000  ORDER BY CNAME ASC;
+
+15. Retrieve all the records from DEPOSIT where amount > 1000 and arrange the customer name in descending order
+SELECT * FROM DEPOSIT WHERE AMOUNT >1000  ORDER BY CNAME DESC;
+
+17. Retrieve all the records from the table BORROW where amount is not between 2000 and 8000
+SELECT * FROM BORROW WHERE AMOUNT <2000 AND AMOUNT >8000;
+
+18. Find out the unique records from the table DEPOSIT
+SELECT DISTINCT BNAME FROM DEPOSIT;
+
+19. Update the amount of all depositors in deposit table by giving them 10% interest (i.e. amount=amount * 0.1) where branch is VRCE.
+UPDATE DEPOSIT SET AMOUNT=AMOUNT+AMOUNT*0.1 WHERE BNAME='VRCE';
+
+20. Update the amount of all depositors in deposit table by giving them 10% interest where branch is VRCE and customer name ANIL.
+UPDATE DEPOSIT SET AMOUNT=AMOUNT+AMOUNT*0.1 WHERE BNAME='VRCE' AND CNAME='ANIL';
+===================================================================================
+QUESTION 2
+
+CREATE TABLE STUDENT(
+NAME VARCHAR(20),
+ROLLNO INT,
+BRANCH  VARCHAR(20),
+CITY VARCHAR(20)
+);
+
+INSERT INTO STUDENT VALUES("VIJAYA",150,"CSE","CHENNAI");
+INSERT INTO STUDENT VALUES("SITA",202,"ETC","KOLKATA");
+INSERT INTO STUDENT VALUES("RAVI",300,"EEE","DELHI");
+INSERT INTO STUDENT VALUES("BASU",165,"ETC","CHENNAI");
+INSERT INTO STUDENT VALUES("RASMI",107,"ETC","RKL");
+INSERT INTO STUDENT VALUES("KARAN",111,"CSE","CTC");
+INSERT INTO STUDENT VALUES("REKHA",117,"BME","BBSR");
+
+1. Count the number of students of each department
+SELECT COUNT(BRANCH) FROM STUDENT;
+
+2. Count the number of students of each department where the department name starts with ‘E’
+select * FROM student WHERE LEFT(BRANCH , 1) IN ('e');
+
+3. Add a field called MARKS to the table STUDENT which can hold a number upto 8 digit length.
+ALTER TABLE STUDENT ADD MARKS LONG;
+
+4. Modify the field :”NAME” of the table STUDENT to hold a maximum of 25 character.
+ALTER TABLE STUDENT MODIFY NAME VARCHAR(25);
+
+5 Delete all rows from the table STUDENT where branch is ETC
+DELETE FROM STUDENT WHERE BRANCH="ETC";
+
+6. Rename the table STUDENT to STUDINFORMATION
+RENAME TABLE STUDENT TO STUDINFORMATION;
+
+7. Delete all the data part from the table STUDENT.
+TRUNCATE TABLE STUDENT;
+
+8. Destroy the table STUDENT.
+DROP TABLE STUDENT;
