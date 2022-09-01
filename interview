@@ -1,4 +1,6 @@
 Spring boot Anotation
+
+
 String s1 = “shubham”
 String s2 = new String(“shubham”)
 String s3 = “shubham”
@@ -50,6 +52,7 @@ Always discuss the problem and the approach upfront
 You are using way to much words while explaning
 Always approach in a calm manner so that interviewer can catch up with your answer/approach
 Need a little bit more practice on at least basic level of DSA/logical problem
+--------------------------------------------------------------------------------
 
 
 
