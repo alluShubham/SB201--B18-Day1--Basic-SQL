@@ -1,1 +1,55 @@
 Spring boot Anotation
+String s1 = “shubham”
+String s2 = new String(“shubham”)
+String s3 = “shubham”
+String s4 = new String(“shubham”)
+
+
+s1=2020                  “shubham”
+                               2020
+
+S2 =3030
+                               String
+                             3030                                   char 
+                                                                      4040
+
+
+
+Parent p = new Child()
+p.test()
+
+
+ArrayList: 
+
+checked-unchecked
+
+
+Try
+Catch
+Finally
+
+
+/hello/{id}
+5: Shubham 
+
+Hello Shubham
+
+
+
+Feedback:
+-------------
+
+What went well:
+Intro was good
+Covered so much in few months and still able to recollect most of it
+You are able to come up with examples whenever asked
+Use of pen-paper during problem solving
+
+What to improve:
+Always discuss the problem and the approach upfront
+You are using way to much words while explaning
+Always approach in a calm manner so that interviewer can catch up with your answer/approach
+Need a little bit more practice on at least basic level of DSA/logical problem
+
+
+
