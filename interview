@@ -1,5 +1,6 @@
 Spring boot Anotation
 
+explian Palindrome.
 
 String s1 = “shubham”
 String s2 = new String(“shubham”)
