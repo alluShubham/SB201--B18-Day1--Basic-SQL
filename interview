@@ -57,5 +57,11 @@ Always approach in a calm manner so that interviewer can catch up with your answ
 Need a little bit more practice on at least basic level of DSA/logical problem
 --------------------------------------------------------------------------------
 
+let num = 2;
+function double(num) {
+  return num * num;
+}
+let res = double(10);
+console.log(res);
 
 
