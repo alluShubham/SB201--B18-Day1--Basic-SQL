@@ -4,6 +4,17 @@ explian Palindrome.
 polymorphism
 ArrayList
 
+Problems
+Questions
+Problem 1
+Why is Java so Popular?
+Problem 2
+What is Platform Independence?
+Problem 3
+What is ByteCode?
+Problem 4
+Compare JDK vs JVM VS JRE.
+
 String s1 = “shubham”
 String s2 = new String(“shubham”)
 String s3 = “shubham”
