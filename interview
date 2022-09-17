@@ -15,6 +15,25 @@ What is ByteCode?
 Problem 4
 Compare JDK vs JVM VS JRE.
 
+Problem 1
+What are wrapper classes?
+Problem 2
+Why do we need Wrapper Classes in Java?
+Problem 3
+What are the different ways of creating Wrapper Class Instances?
+Problem 4
+What are differences in the two ways of creating wrapper classes ?
+Problem 4
+What is Auto Boxing?
+Problem 5
+What are the advantages of Auto Boxing?
+Problem 6
+What is Casting?
+Problem 7
+What is Implicit Casting?
+Problem 8
+What is Explicit Casting?
+
 String s1 = “shubham”
 String s2 = new String(“shubham”)
 String s3 = “shubham”
