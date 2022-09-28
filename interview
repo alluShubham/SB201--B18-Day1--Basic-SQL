@@ -34,6 +34,11 @@ What is Implicit Casting?
 Problem 8
 What is Explicit Casting?
 
+1. What is that term ?
+2. Examples of that topic
+3. Where we can use it 
+4. Extra Information
+
 String s1 = “shubham”
 String s2 = new String(“shubham”)
 String s3 = “shubham”
