@@ -42,6 +42,8 @@ What is Explicit Casting?
 1. What is Dispatcher Servlet ? How do you set up Dispatcher Servlet ?
  2. Can you explain a simple flow in Spring MVC. What is a ViewResolver ?
  3. Model vs ModelAndView
+ ==============================================================================
+ 
 
 String s1 = “shubham”
 String s2 = new String(“shubham”)
